@@ -6,15 +6,17 @@ import {
   Route,
 } from "react-router-dom";
 import {
-  Footer,
   Frame,
   withSounds,
   withStyles,
 } from "arwes";
 
+import usePlanets from "../hooks/usePlanets";
+import useLaunches from "../hooks/useLaunches";
 
 import Centered from "../components/Centered";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 import Launch from "./Launch";
 import History from "./History";
@@ -49,6 +51,15 @@ const AppLayout = props => {
   const onAbortSound = () => sounds.abort && sounds.abort.play();
   const onFailureSound = () => sounds.warning && sounds.warning.play();
 
+  const {
+    launches,
+    isPendingLaunch,
+    submitLaunch,
+    abortLaunch,
+  } = useLaunches(onSuccessSound, onAbortSound, onFailureSound);
+
+  const planets = usePlanets();
+  
   return <div className={classes.content}>
     <Header onNav={animateFrame} />
     <Centered className={classes.centered}>
@@ -61,25 +72,33 @@ const AppLayout = props => {
           <Switch>
             <Route exact path="/">
               <Launch 
-                entered={anim.entered}/>
+                entered={anim.entered}
+                planets={planets}
+                submitLaunch={submitLaunch}
+                isPendingLaunch={isPendingLaunch} />
             </Route>
             <Route exact path="/launch">
               <Launch
-                entered={anim.entered} />
+                entered={anim.entered}
+                planets={planets}
+                submitLaunch={submitLaunch}
+                isPendingLaunch={isPendingLaunch} />
             </Route>
             <Route exact path="/upcoming">
               <Upcoming
-                entered={anim.entered} />
+                entered={anim.entered}
+                launches={launches}
+                abortLaunch={abortLaunch} />
             </Route>
             <Route exact path="/history">
-              <History/>
+              <History entered={anim.entered} launches={launches} />
             </Route>
           </Switch>
           </div>
         )}
       </Frame>
     </Centered>
-    <Footer/>
+    <Footer />
   </div>;
 };
 

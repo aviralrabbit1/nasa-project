@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Appear, Button, Loading, Paragraph } from "arwes";
+import Clickable from "../components/Clickable";
 
 const Launch = props => {
   const selectorBody = useMemo(() => {
@@ -29,6 +30,15 @@ const Launch = props => {
       <select id="planets-selector" name="planets-selector">
         {selectorBody}
       </select>
+      <Clickable>
+        <Button animate 
+          show={props.entered} 
+          type="submit" 
+          layer="success" 
+          disabled={props.isPendingLaunch}>
+          Launch Mission ✔
+        </Button>
+      </Clickable>
       {props.isPendingLaunch &&
         <Loading animate small />
       }

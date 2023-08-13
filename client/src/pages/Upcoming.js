@@ -8,6 +8,7 @@ import {
   Words,
 } from "arwes";
 
+import Clickable from "../components/Clickable";
 
 const styles = () => ({
   link: {
@@ -29,7 +30,11 @@ const Upcoming = props => {
       .map((launch) => {
         return <tr key={String(launch.flightNumber)}>
           <td>
-            x
+            <Clickable style={{color:"red"}}>
+              <Link className={classes.link} onClick={() => abortLaunch(launch.flightNumber)}>
+                ✖
+              </Link>
+            </Clickable>
           </td>
           <td>{launch.flightNumber}</td>
           <td>{new Date(launch.launchDate).toDateString()}</td>
