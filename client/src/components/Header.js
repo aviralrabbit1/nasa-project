@@ -6,6 +6,7 @@ import {
   withStyles,
 } from "arwes";
 import { Link } from "react-router-dom";
+import Clickable from "./Clickable";
 import Centered from "./Centered";
 
 const styles = theme => ({
@@ -75,7 +76,25 @@ const Header = props => {
         NASA Mission Control
       </Words>
       <nav className={`${classes.nav}`}>
-        Navbar
+        <Clickable className={classes.clickable} onClick={onNav}>
+          <Highlight className={classes.button} animate layer="header">
+            <Link className={classes.link} to="/launch">
+              <i className="material-icons">check_circle_outline</i>Launch
+            </Link>
+          </Highlight>
+        </Clickable>
+        <Clickable className={classes.clickable} onClick={onNav}>
+          <Highlight className={classes.button} animate layer="header">
+            <Link className={classes.link} to="/upcoming">
+            <i className="material-icons">update</i>Upcoming</Link>
+          </Highlight>
+        </Clickable>
+        <Clickable className={classes.clickable} onClick={onNav}>
+          <Highlight className={classes.button} animate layer="header">
+            <Link className={classes.link} to="/history">
+            <i className="material-icons">history</i>History</Link>
+          </Highlight>
+        </Clickable>
       </nav>
     </Centered>
   </ArwesHeader>

@@ -6,6 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 import {
+  Footer,
   Frame,
   withSounds,
   withStyles,
@@ -78,6 +79,7 @@ const AppLayout = props => {
         )}
       </Frame>
     </Centered>
+    <Footer/>
   </div>;
 };
 
