@@ -1,11 +1,7 @@
-# Frontend
+## Frontend created from sci-fi UI framework
 
-### Created with 
-```
-npx create-react-app ./
-```
+[Arwes Github](https://github.com/arwes/arwes)
 
-### Install Arwes sci-fi UI web framework with
-```
-npm install arwes
-```
+ ```
+ npm install arwes
+ ```
