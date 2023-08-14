@@ -9,3 +9,8 @@ npm install express
 ```
 npm install --save-dev nodemon
 ```
+
+## To parse csv data,
+```
+npm install csv-parse
+```

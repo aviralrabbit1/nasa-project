@@ -20,5 +20,4 @@ async function startServer(){
     // app.listen(); // This can also be used
 }
 
-
 startServer();
