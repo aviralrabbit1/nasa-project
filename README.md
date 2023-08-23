@@ -14,3 +14,8 @@ npm install --save-dev nodemon
 ```
 npm install csv-parse
 ```
+
+## HTTP request logger middleware for node.js:
+```
+npm install morgan
+```
