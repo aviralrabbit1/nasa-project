@@ -1,4 +1,4 @@
-const { launches } = require('..//../models/launches.model');
+const { launches } = require('../../models/launches.model');
 
 function getAllLaunches(req, res){
     // for(value of launches.value()){...};

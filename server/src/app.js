@@ -24,5 +24,6 @@ app.get('/', (req, res) => {
 });
 
 app.use(planetsRouter);
+app.use(launchesRouter);
 
 module.exports = app;
