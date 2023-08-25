@@ -14,6 +14,10 @@ const launch = {
 launches.set(launch.flightNumber, launch);
 // launches.get(100) === launch
 
+function getAllLaunches(){ // data access function, divides reponsibility b/w model and controller
+    return Array.from(launches.values());
+}
+
 module.exports = {
-    launches,
+    getAllLaunches,
 };
