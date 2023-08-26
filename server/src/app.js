@@ -23,7 +23,7 @@ app.get('/*', (req, res) => { // "/*"" matches everything any endpoint after sla
     res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
-app.use(planetsRouter);
-app.use(launchesRouter);
+app.use('/planets',planetsRouter);
+app.use('/launches',launchesRouter);
 
 module.exports = app;
