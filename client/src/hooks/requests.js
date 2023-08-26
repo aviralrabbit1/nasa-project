@@ -15,8 +15,19 @@ async function httpGetLaunches() {
 }
 
 async function httpSubmitLaunch(launch) {
-  // TODO: Once API is ready.
-  // Submit given launch data to launch system.
+  try { // used if the status code isn't set
+    return await fetch(`${API_URL}/launches`, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(launch), // sending launch data to API
+    });    
+  } catch (err) {
+    return {
+      ok: false, // returns error in uselaunches::abortLaunch::useCallback::success
+    };
+  }
 }
 
 async function httpAbortLaunch(id) {
