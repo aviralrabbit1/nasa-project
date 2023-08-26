@@ -19,11 +19,11 @@ app.use(express.json()); // middleware can be used here
 app.use(express.static(path.join(__dirname, '..', 'public'))); //exress middleware
 // serve all of our public files using the path.join function
 
+app.use('/planets',planetsRouter);
+app.use('/launches',launchesRouter);
+
 app.get('/*', (req, res) => { // "/*"" matches everything any endpoint after slash
     res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
-
-app.use(planetsRouter);
-app.use(launchesRouter);
 
 module.exports = app;

@@ -1,4 +1,7 @@
-const { getAllLaunches } = require('../../models/launches.model');
+const { 
+    getAllLaunches,
+    addNewLaunch,
+ } = require('../../models/launches.model');
 // const { launches } = require('../../models/launches.model');
 // const getAllLaunches = require('../../models/launches.model');
 // const launchesModel = require('../../models/launches.model');
@@ -12,6 +15,15 @@ function httpgetAllLaunches(req, res){ // as any function with http returns resp
     // We only need to know we're getting all launches from launches model
 }
 
+function httpaddNewLaunch(req, res){
+    const launch = req.body;
+
+    launch.launchDate = new Date(launch.launchDate);
+    addNewLaunch(launch);
+    return res.status(201).json(launch); // Created data success
+}
+
 module.exports = {
     httpgetAllLaunches,
+    httpaddNewLaunch,
 }
