@@ -20,6 +20,14 @@ function existLaunchWithID(launchId){
     return launches.has(launchId);
 }
 
+function abortLaunchWithID(launchId){
+    // launch.delete(launchId);
+    const aborted = launches.get(launchId);
+    aborted.upcoming = false;
+    aborted.success = false;
+    return aborted;
+}
+
 function getAllLaunches(){ // data access function, divides reponsibility b/w model and controller
     return Array.from(launches.values());
 }
@@ -40,4 +48,6 @@ function addNewLaunch(launch) {
 module.exports = {
     getAllLaunches,
     addNewLaunch,
+    existLaunchWithID,
+    abortLaunchWithID,
 };
