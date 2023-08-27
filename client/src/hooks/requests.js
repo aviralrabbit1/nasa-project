@@ -30,9 +30,18 @@ async function httpSubmitLaunch(launch) {
   }
 }
 
+// Delete launch with given ID.
 async function httpAbortLaunch(id) {
-  // TODO: Once API is ready.
-  // Delete launch with given ID.
+  try { // used if the status code isn't set
+    return await fetch(`${API_URL}/launches/${id}`, {
+      method: "delete",
+    });    
+  } catch (err) {
+    console.log(err);
+    return {
+      ok: false, // returns error in uselaunches::abortLaunch::useCallback::success
+    };
+  }
 }
 
 export {
