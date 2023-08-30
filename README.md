@@ -31,13 +31,18 @@ frontend;
 webApp;  
 node<-->id2>Kepler_data.csv];  
 node-->Backend[Backend];
+click frontend "https://github.com/aviralrabbit1/nasa-project/blob/main/client.README.md"
+click Backend "https://github.com/aviralrabbit1/nasa-project/blob/main/server.README.md"
+click id2 "https://github.com/aviralrabbit1/nasa-project/blob/main/server/data/kepler_data.csv"
+click node "https://github.com/aviralrabbit1/nasa-project/tree/main/server/src"
+click webApp "https://github.com/aviralrabbit1/nasa-project/tree/main/server/public"
 end;
 subgraph Web
     webApp<==>|HTTP|Browser([Browser]);
     end
 subgraph Data
     id1[(Nasa Exoplanet Archive)]==>|Manual download|id2>Kepler_data.csv]
-    click webApp "https://www.github.com" _blank;
+    click id1 "https://phl.upr.edu/projects/habitable-exoplanets-catalog" _blank;
     end
 classDef plain fill:#00f,stroke:#ef686d,stroke-width:2px,font-size:16px,font-size:16px,color:#ffe5ab;
 classDef k8s fill:#c2f7f9,stroke:#641ae6,stroke-width:2px,font-size:16px,color:#000;  
