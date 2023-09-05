@@ -15,3 +15,5 @@
 ```
 npm install jest --save-dev
 ```
+#### Tests should be written in separate `__tests__` folder, alternatively alongside any modules that are to be tested. Eg. router, etc like - 
+In **`routes/launches`** folder, `launches.test.js` or ` launches.spec.js`
