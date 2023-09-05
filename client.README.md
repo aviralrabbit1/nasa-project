@@ -10,15 +10,3 @@
 ```
 "build": "BUILD_PATH='../server/public' react-scripts build",
 ```
-
-### For javscript testing, add as a devDependency,
-```
-npm install jest --save-dev
-```
-#### Tests should be written in separate `__tests__` folder, alternatively alongside any modules that are to be tested. Eg. router, etc like - 
-In **`routes/launches`** folder, `launches.test.js` or ` launches.spec.js`
-
-#### To re-run launches test everytime launches route updated
-```
-"test-watch": "jest --watch",
-```
