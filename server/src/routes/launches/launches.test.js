@@ -13,9 +13,24 @@ describe('Test GET /launches', () => {
 });
 
 describe('Test POST /launches', () => {
-    test('It should respond with 200 success', () => {
-        const response = 200;
-        expect(response).toBe(200);
+    test('It should respond with 201 success', async () => {
+        const response = await request(app)
+            .post('/launches')
+            .send({
+                mission: 'Chandrayan 4',
+                rocket: 'Aditya L1',
+                target: 'Kepler-62 f',
+                launchDate: 'January 6, 2025'
+            })
+            .expect('Content-Type', /json/)
+            .expect(201);
+
+            expect(response.body).toMatchObject({
+                mission: 'Chandrayan 4',
+                rocket: 'Aditya L1',
+                target: 'Kepler-62 f',
+                launchDate: 'January 6, 2025'
+            });
     });
     // Error from launches.controller
     test('It should catch missing required properties', () => {
