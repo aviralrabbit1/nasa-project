@@ -13,24 +13,33 @@ describe('Test GET /launches', () => {
 });
 
 describe('Test POST /launches', () => {
+
+    const completeLaunchData = {
+        mission: 'Chandrayan 4',
+        rocket: 'Aditya L1',
+        target: 'Kepler-62 f',
+        launchDate: 'January 6, 2025'
+    };
+    
+    const launchDataWithoutDate = {
+        mission: 'Chandrayan 4',
+        rocket: 'Aditya L1',
+        target: 'Kepler-62 f',
+    };
+
     test('It should respond with 201 success', async () => {
         const response = await request(app)
             .post('/launches')
-            .send({
-                mission: 'Chandrayan 4',
-                rocket: 'Aditya L1',
-                target: 'Kepler-62 f',
-                launchDate: 'January 6, 2025'
-            })
-            .expect('Content-Type', /json/)
+            .send(completeLaunchData)
+            .expect('Content-Type',/json/)
             .expect(201);
 
-            expect(response.body).toMatchObject({
-                mission: 'Chandrayan 4',
-                rocket: 'Aditya L1',
-                target: 'Kepler-62 f',
-                launchDate: 'January 6, 2025'
-            });
+        const requestDate = new Date(completeLaunchData.launchDate).valueOf();
+        const responseDate = new Date(response.body.launchDate).valueOf();
+
+        expect(responseDate).toBe(requestDate);
+
+        expect(response.body).toMatchObject(launchDataWithoutDate);
     });
     // Error from launches.controller
     test('It should catch missing required properties', () => {
