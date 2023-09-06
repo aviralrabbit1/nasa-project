@@ -42,4 +42,20 @@ var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
 // setup the logger
 app.use(morgan('combined', { stream: accessLogStream }))
 ```
+### For javscript testing, add as a devDependency,
+```
+npm install jest --save-dev
+```
+#### Tests should be written in separate `__tests__` folder, alternatively alongside any modules that are to be tested. Eg. router, etc like - 
+In **`routes/launches`** folder, `launches.test.js` or ` launches.spec.js`
 
+#### To re-run launches test everytime launches route updated, in server/package.json add command
+```
+"test-watch": "jest --watch",
+```
+
+
+###  To provide a high-level abstraction for testing HTTP
+```
+npm install supertest --save-dev
+```

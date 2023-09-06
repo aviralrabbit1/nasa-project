@@ -1,6 +1,6 @@
 ## Frontend
 
-### Created from sci-fi UI framework [Arwes Github](https://github.com/arwes/arwes)
+### Created from sci-fi UI framework [Arwes](https://github.com/arwes/arwes),
 
  ```
  npm install arwes
