@@ -79,4 +79,15 @@ for deployment, add
 ```json
 "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
 ```
-
+Some features/functions of pm2 -
+- `pm2 start server.js` -> running master process 
+- `pm2 ls/list` -> list of all processess
+- `pm2 stop {id}` -> stops the server
+- `pm2 delete server` -> deletes the server
+- `pm2 start server.js -i {number_of_process/max}` -> -i = instance, how may processes
+- `pm2 logs`
+- `pm2 logs --lines 200` -> for last 200 lines
+- `pm2 restart server`
+- `pm2 start server.js -l logs logs.txt -i` -> output logs in a file
+- `pm2 show {id}`
+- `pm2 monit` -> terminal monitoring  
