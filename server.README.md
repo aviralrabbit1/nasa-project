@@ -50,7 +50,7 @@ npm install jest --save-dev
 In **`routes/launches`** folder, `launches.test.js` or ` launches.spec.js`
 
 #### To re-run launches test everytime launches route updated, in server/package.json add command
-```
+```json
 "test-watch": "jest --watch",
 ```
 
@@ -59,3 +59,24 @@ In **`routes/launches`** folder, `launches.test.js` or ` launches.spec.js`
 ```
 npm install supertest --save-dev
 ```
+
+### To improve performance, install pm2
+```sh
+npm install pm2
+```
+
+In server/package.json, add the folliwng command in scripts-
+```json
+"cluster":"pm2 start src/server.js -i max"
+```
+
+and in package.json, add-
+```json
+"deploy-cluster": "npm run cluster --prefix server",
+```
+
+for deployment, add
+```json
+"deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
+```
+
