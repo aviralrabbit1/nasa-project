@@ -54,8 +54,12 @@ In **`routes/launches`** folder, `launches.test.js` or ` launches.spec.js`
 "test-watch": "jest --watch",
 ```
 
-
 ###  To provide a high-level abstraction for testing HTTP
 ```
 npm install supertest --save-dev
+```
+
+### To improve performance,
+```sh
+npm install pm2
 ```
