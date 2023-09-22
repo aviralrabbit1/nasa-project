@@ -8,7 +8,7 @@ const app = require('./app');
 
 const { loadPlanetsData } = require('./models/planets.model');
 
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 4000;
 // "start": "PORT =4000 node src/server.js" in package.json
 
 const MONGO_URL = 'mongodb+srv://nasa-api:ynRfc8muOHiOznLk@nasa-api.cvfeaaj.mongodb.net/?retryWrites=true&w=majority';
@@ -25,12 +25,13 @@ mongoose.connection.on('error', (err) => {
 })
 
 async function startServer(){
-    mongoose.connect(MONGO_URL, {
-        useNewUrlParser: true, // how mongoose parses connection string
-        userFindAndModify: false,
-        useCreateIndex: true,
-        useUnifiedTopology: true, 
-    });
+    await mongoose.connect(MONGO_URL);
+    // mongoose.connect(MONGO_URL, {
+    //     useNewUrlParser: true, // how mongoose parses connection string
+    //     // userFindAndModify: false,
+    //     // useCreateIndex: true,
+    //     useUnifiedTopology: true, 
+    // });
     await loadPlanetsData(); // can't call await in top level of file, but inside an asycn function
 
     server.listen(PORT, ()=> {
