@@ -1,20 +1,20 @@
 ## To use express server,
-```
+```sh
 npm install express
 ```
 
 ## To use nodemon,
-```
+```sh
 npm install --save-dev nodemon
 ```
 
 ## To parse csv data,
-```
+```sh
 npm install csv-parse
 ```
 
 ## HTTP request logger middleware for node.js:
-```
+```sh
 npm install morgan
 ```
 
@@ -43,7 +43,7 @@ var accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
 app.use(morgan('combined', { stream: accessLogStream }))
 ```
 ### For javscript testing, add as a devDependency,
-```
+```sh
 npm install jest --save-dev
 ```
 #### Tests should be written in separate `__tests__` folder, alternatively alongside any modules that are to be tested. Eg. router, etc like - 
@@ -56,7 +56,7 @@ In **`routes/launches`** folder, `launches.test.js` or ` launches.spec.js`
 
 
 ###  To provide a high-level abstraction for testing HTTP
-```
+```sh
 npm install supertest --save-dev
 ```
 
@@ -79,7 +79,7 @@ for deployment, add
 ```json
 "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
 ```
-Some features/functions of pm2 -
+Some features/functions of **pm2** -
 - `pm2 start server.js` -> running master process 
 - `pm2 ls/list` -> list of all processess
 - `pm2 stop {id}` -> stops the server
