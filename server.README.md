@@ -91,3 +91,11 @@ Some features/functions of **pm2** -
 - `pm2 start server.js -l logs logs.txt -i` -> output logs in a file
 - `pm2 show {id}`
 - `pm2 monit` -> terminal monitoring  
+
+
+### For database, i'm using [MongoDB Atlas](https://www.mongodb.com/atlas)
+
+### Installing mongoods -
+```sh
+npm install mongoose --save
+```
