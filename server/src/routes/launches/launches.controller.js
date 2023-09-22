@@ -15,6 +15,8 @@ function httpgetAllLaunches(req, res){ // as any function with http returns resp
     // return res.status(200).json(getAllLaunches());
     // return res.status(200).json(launchesModel.getAllLaunches());
     // We only need to know we're getting all launches from launches model
+
+    // we have individual operations (read) here.
 }
 
 function httpaddNewLaunch(req, res){
@@ -40,16 +42,21 @@ function httpaddNewLaunch(req, res){
 }
 
 function httpAbortLaunch(req, res){
+
+    // It has multiple operations
     const launchId = Number(req.params.id);
     // if launch doesn't exist,
     if(!existLaunchWithID(launchId)){
         return res.status(404).json({
             error: 'Launch not found',
         })
+        // Not at loss if it doesn't exist, it's just extra validation.
     }
     // if launch exists,
     const aborted = abortLaunchWithID(launchId);{
         return res.status(200).json(aborted);
+        // As long as data persists, mongoDB guarantees are good enough
+        // can be scaled horizontally easily
     }
 }
 

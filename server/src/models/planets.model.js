@@ -2,7 +2,7 @@ const { parse } = require('csv-parse');
 const fs = require('fs');
 const path = require('path');
 
-const habitablePlanets = [];
+const habitablePlanets = []; // storing as strings
 
 // Values taken from - 
 // https://www.centauri-dreams.org/2015/01/30/a-review-of-the-best-habitable-planet-candidates/
