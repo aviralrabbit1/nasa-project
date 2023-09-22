@@ -1,4 +1,7 @@
 const launches = new Map();
+// Due to pm2, different launches will be created which may not inter-communicate
+// This issue can be solved by storing this 'launches' somewhere else -> Database
+// or using worker threads, where data can be shared among them
 
 let latestFlightNumber = 100;
 
