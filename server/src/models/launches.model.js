@@ -16,6 +16,13 @@ const launch = {
     success: true,
 }
 
+// If target has more stuff, target: { name: '', moons: [ moonA, moonB]}, SQL would've been advantagous
+// SQL gives ACID transactions, data is persistent and will survive.
+// data will be written as whole - atomicity
+// Porblem: The data is viable to change in future
+// SQL is good when we know about this all
+// Else mongoDB's schemaless approach is flexible
+
 launches.set(launch.flightNumber, launch);
 // launches.get(100) === launch
 
